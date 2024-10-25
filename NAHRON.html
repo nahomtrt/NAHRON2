@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Interface</title>
+    <link rel="stylesheet" href="NAHRONCSS.css">
+</head>
+<body>
+    <div class="car-display">
+        <!-- Header -->
+        <header class="header">
+            <h1>Car Display</h1>
+            <div class="status-icons">
+                <span>🔋 90%</span>
+                <span>📶 LTE</span>
+                <span>☀️ 24°C</span>
+            </div>
+        </header>
+
+        <!-- Home Menu -->
+        <div class="menu" id="menu-screen">
+            <div class="menu-button" id="nav-btn">
+                <button class="map-button">
+                    <i class="fas fa-map-marker-alt"></i> ⟟ 
+                </button>
+            </div>
+
+            <div class="menu-button" id="music-btn">
+                <button class="music-btn">
+                    <span class="music-screen">♫</span>
+                    <span class="btn-text"></span>
+                </button>
+            </div>
+
+            <div class="menu-button" id="climate-btn">
+                <button class="climate-btn">
+                    <span class="thermometer-icon">&#x1F321;</span>
+                    <span class="btn-text"></span> <!-- Added button text here -->
+                </button>
+            </div>
+
+            <div class="menu-button" id="settings-btn">
+                <button title="settings-btn" class="settings-option">
+                    <svg viewBox="0 0 512 512" height="1em">
+                        <path
+                            d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Display Area -->
+        <div class="display-area" id="display">
+            <p>Select an option from the menu.</p>
+        </div>
+
+        <!-- Climate Control Screen -->
+        <div id="climate-screen" class="menu-screen" style="display: none;">
+            <header class="header">
+                <h1>Climate Control</h1>
+                <button class="back-btn" onclick="showScreen('menu-screen')">Back to Menu</button>
+            </header>
+            <div class="temp-slider-container">
+                <div id="current-temp">73°F</div>
+                <input type="range" id="temp-slider" min="60" max="90" value="73">
+            </div>
+            <div class="climate-option">
+                <span>Seat Heating:</span>
+                <button id="seat-heat-toggle">OFF</button>
+            </div>
+            <div class="climate-option">
+                <span>Ventilation:</span>
+                <button id="ventilation-mode">Comfort</button>
+            </div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settings-screen" class="menu-screen" style="display: none;">
+            <header class="header">
+                <h1>Settings</h1>
+                <button class="back-btn" onclick="showScreen('menu-screen')">Back to Menu</button>
+            </header>
+            <div class="settings-menu">
+                <div class="settings-option">
+                    <span> Bluetooth</span>
+                    <button class="toggle-btn" id="bluetooth-toggle">ON</button>
+                </div>
+                <div class="settings-option">
+                    <span>💡 Screen Brightness</span>
+                    <input type="range" id="brightness-slider" min="0" max="100" value="75">
+                </div>
+                <div class="settings-option">
+                    <span>🌐 Language</span>
+                    <select id="language-dropdown">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                    </select>
+                </div>
+                <body class="light-mode">
+                    <div class="theme-toggle">
+                        <label for="theme-switch">light-mode</label>
+                        <input type="checkbox" id="theme-switch" onclick="toggleTheme()">
+                    </div>
+                </body>
+            </div>
+        </div>
+
+        <!-- Music Screen -->
+        <div id="music-screen" class="menu-screen" style="display: none;">
+            <header class="header">
+                <h1>Music</h1>
+                <button class="back-btn" onclick="showScreen('menu-screen')">Back to Menu</button>
+            </header>
+            <div id="now-playing">Now Playing: None</div>
+            <ul id="playlist">
+                <li>Song 1</li>
+                <li>Song 2</li>
+                <li>song 3</li>
+            </ul>
+        </div>
+
+        <!-- Navigation Screen -->
+        <div id="nav-screen" class="menu-screen" style="display: none;">
+            <header class="header">
+                <h1>Navigation</h1>
+                <button onclick="showScreen('menu-screen')">Back to Menu</button>
+            </header>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+        </div>
+       
+    </div>
+
+    <!-- Load the JavaScript file -->
+    <script src="NAHRONJS.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+  Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color:whitesmoke; /* Black background */
+    color: #f2f2f2; /* Cream-white text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Car Display Layout */
+.car-display {
+    width: 80vw;
+    max-width: 800px;
+    background-color: rgb(255, 255, 255); /* Dark grey background */
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid rgb(255, 255, 255); /* Grey border */
+}
+
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(255, 255, 255); /* Slightly lighter black */
+    border-bottom: 1px solid rgb(255, 255, 255); /* Grey border */
+}
+
+
+.header h1 {
+    font-size: 24px;
+}
+
+
+.status-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+}
+
+
+/* Menu Buttons */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgb(255, 252, 252); /* Dark grey */
+    border-bottom: 1px solid rgb(255, 255, 255); /* Grey border */
+}
+
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+
+.menu-button:hover {
+    transform: scale(1.05); /* Slight grow on hover */
+}
+
+
+.menu-button span {
+    font-size: 40px;
+}
+
+
+.menu-button h2 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+/* Display Area */
+.display-area {
+    padding: 30px;
+    height: 400px;
+    background-color: #ffffff; /* Grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 18px;
+    gap: 20px;
+}
+
+
+/* Temperature Slider (Horizontal Layout) */
+.temp-slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#temp-slider {
+    appearance: none;
+    width: 100%; /* Horizontal slider */
+    height: 10px;
+    background: linear-gradient(to right, lightblue, red); 
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s; /* Smooth transition */
+}
+
+#temp-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #000000; /* Black thumb */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#current-temp {
+    font-size: 24px;
+}
+
+/* Settings Menu */
+.settings-menu, .climate-menu, .music-menu {
+    padding: 20px;
+    background-color: rgb(0, 0, 0); /* Dark grey */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.settings-option, .climate-option, .music-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.settings-option button, .climate-option button {
+    background-color: rgb(0, 0, 0); /* Grey */
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.settings-option button:hover, .climate-option button:hover {
+    background-color: #666; /* Lighter grey on hover */
+}
+
+
+.toggle-btn {
+    background-color: rgb(0, 0, 0); /* Grey */
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+select {
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #444; /* Grey */
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+button:hover {
+    background-color: #666; /* Light grey on hover */
+    transform: translateY(-2px); /* Slight raise effect */
+}
+
+
+button:active {
+    background-color: #333; /* Dark grey when pressed */
+}
+
+
+/* Music Playlist */
+#playlist {
+    list-style-type: none;
+    text-align: center;
+}
+
+
+#playlist li {
+    margin: 10px 0;
+    background-color: rgb(0, 0, 0);
+    box-shadow: rgb(68, 66, 66);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#now-playing {
+    font-size: 18px;
+    color: #000000; /* back text */
+    box-shadow: red;
+}
+
+
+/* Slider Custom Styles */
+.slider {
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+
+.slider .level {
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background: rgba(82, 82, 82, 0.322);
+    border-radius: 5px;
+}
+
+
+.map {
+    width: 100%;
+    height: 400px; /* You can change this based on your design */
+    background-color: #ddd;
+}
+
+
+/* setting button so i dont frget setting button so i dont frget setting button so i dont frget*/
+.settings-option {
+    width: 100px;  /* Consistent width */
+    height: 70px;  /* Consistent height */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke; /* Set background color to black */
+    cursor: pointer;
+    margin: 10px auto; /* Center the button and add spacing */
+    box-shadow: none; /* Remove the shadow */
+    transition: none;  /* Ensure there are no transitions or hover effects */
+}
+
+
+/* Settings icon within the button */
+.settings-option svg {
+    height: 16px;    /* Set icon height */
+    fill: rgb(0, 0, 0);  /* White icon color to contrast with black background */
+    transition: none; /* No hover transition */
+}
+
+
+/*climate button so i dont forget climate button so i dont forget climate button so i dont forget*/
+.climate-menu  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
+
+
+.climate-btn {
+    background-color: whitesmoke;
+    border-radius: 10px; /* Reduce the border radius */
+    padding: 8px 15px;   /* Reduced padding to shrink button size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px; /* Set a specific width for consistency */
+    margin: 10px auto; /* Center the button within the container */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+
+.climate-btn:hover {
+    background-color: hsl(180, 1%, 33%);
+}
+
+
+.thermometer-icon {
+    font-size: 20px; /* Slightly smaller font size */
+    margin-right: 3px; /* Reduced margin between icon and text */
+}
+
+
+.btn-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+
+/* Menu button styles to align with climate button */
+.menu-button {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+    width: 50px;
+}
+
+
+/* music button incase i forget music button incase i forget music button incase i forget music button incase i forget*/
+.music-btn {
+    background-color: whitesmoke; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    width: 100px; /* Width of the button */
+    height: 70px; /* Height of the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 10px auto; /* Center the button and add spacing */
+    transition: none; /* No hover transition */
+}
+
+
+.music-icon {
+    font-size: 24px; /* Size of the music icon */
+    margin-right: 10px; /* Space between icon and text */
+    color: black; /* Icon color */
+}
+
+
+.btn-text {
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Bold text */
+    color: black; /* Text color */
+}
+
+
+/* Base styling for the map button Base styling for the map button Base styling for the map button */
+.main-menu {
+    display: flex; /* Use flexbox to align buttons horizontally */
+    flex-wrap: wrap; /* Wrap buttons if they overflow */
+    justify-content: space-around; /* Distribute buttons evenly */
+    gap: 20px; /* Space between buttons */
+  }
+ 
+  /* Base styling for all buttons */
+  .main-menu button {
+    width: 100px; /* Ensure consistent width with other buttons */
+    height: 70px; /* Ensure consistent height with other buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+ 
+  /* Map button specific styling */
+ .map-button {
+    background-color: whitesmoke; /* Set the background color */
+    color: black; /* Set the text color */
+    border-radius: 12px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family */
+    font-size: 35px; /* Text size */
+    cursor: pointer; /* Cursor on hover */
+    transition: all 0.2s ease-in-out;
+    display: flex; /* Use flex for proper alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    width: 100px; /* Set width of button */
+    height: 70px; /* Set height of button */
+    margin: 10px auto; /* Add margin to center within container */
+  }
+ 
+  /* Hover effect for the button */
+  .map-button:hover {
+    background-color: rgb(118, 118, 118); /* Darker background on hover */
+    color: rgb(0, 0, 0); /* Black text on hover */
+  }
+ 
+  /* Styling for the logo */
+  .map-button img {
+    width: 40px; /* Size of the logo */
+    height: 40px; /* Same size for height */
+    object-fit: contain; /* Maintain aspect ratio of logo */
+  }
+ 
+  /* Active state for button press */
+  .map-button:active {
+    transform: scale(0.95); /* Slight button press effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add depth */
+  }
+  .light-mode .car-display {
+    --card-bg: #ffffff;
+    --header-bg: #eaeaea;
+    --border-color: #ccc;
+}
+
+.dark-mode .car-display {
+    --card-bg: #333;
+    --header-bg: #444;
+    --border-color: #555;
+}
+/* Scoped Theme Styles */
+.car-interface-theme body.light-mode {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.car-interface-theme body.dark-mode {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.car-interface-theme .menu-screen {
+    padding: 20px;
+}
+
+.car-interface-theme .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.car-interface-theme .back-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: 4px solid #0056b3; /* Wider border */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.car-interface-theme .settings-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.car-interface-theme .settings-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 4px solid #ccc; /* Wider border */
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.car-interface-theme .toggle-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: 4px solid #1e7e34; /* Wider border */
+    border-radius: 5px;
+}
+
+.car-interface-theme .toggle-btn.off {
+    background-color: #dc3545;
+    border: 4px solid #c82333; /* Wider border */
+}
+
+.car-interface-theme #brightness-slider {
+    width: 100%;
+}
+
+.car-interface-theme .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 4px solid #ccc; /* Wider border */
+    border-radius: 5px;
+    background-color: #fff;
+}
